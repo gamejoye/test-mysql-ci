@@ -12,7 +12,7 @@ export class EnvConfigService implements IEnvConfigService {
   constructor(private configService: ConfigService) {}
 
   getDatabaseConfig(): IDatabaseConfig {
-    return {
+    const config = {
       host: this.configService.get<string>('DATABASE_HOST'),
       port: this.configService.get<number>('DATABASE_PORT'),
       type: this.configService.get<'mysql'>('DATABASE_TYPE'),
@@ -20,6 +20,8 @@ export class EnvConfigService implements IEnvConfigService {
       password: this.configService.get<string>('DATABASE_PASSWORD'),
       database: this.configService.get<string>('DATABASE_DATABASE'),
     };
+    console.info(config);
+    return config;
   }
   getJwtConfig(): IJwtConfig {
     return {
