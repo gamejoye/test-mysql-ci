@@ -39,8 +39,6 @@ jobs:
           echo "DATABASE_PASSWORD=rootpass" >> .env.test
           echo "DATABASE_DATABASE=testdb" >> .env.test
           echo "JWT_SECRET=se" >> .env.test
-      - name: Connect To Mysql
-        run: mysql -h 127.0.0.1 --port 3306 -u root -prootpass
       - name: Run the test
         run: npm run test
         
